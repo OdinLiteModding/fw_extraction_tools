@@ -1,0 +1,6 @@
+.direnv
+.venv
+assets/
+AIK-Linux/
+dumps/
+twrpdtgen/
