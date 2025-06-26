@@ -44,8 +44,3 @@ tools:
 - https://github.com/sebaubuntu-python/aospdtgen/tree/master/aospdtgen
 - https://github.com/bkerler/mtkclient
 - list - https://github.com/Akipe/awesome-android-aosp?tab=readme-ov-file
-
-
-TODO:
-- nixos ports:
-  - AIK + mtkclient
