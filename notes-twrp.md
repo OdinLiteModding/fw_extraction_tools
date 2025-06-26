@@ -1,10 +1,15 @@
+mkdir -p minTWRP
 cd minTWRP
+repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
+repo sync
+mkdir -p device/alps
+ln -s "$(realpath ../twrpdtgen/output/alps/odinlite_6877_fhd_v1)" device/alps/odinlite_6877_fhd_v1
+
 export ALLOW_MISSING_DEPENDENCIES=true
 . build/envsetup.sh 
 lunch twrp_odinlite_6877_fhd_v1-eng
 mka recovery -j`nproc`
 mka bootimage -j`nproc`
-make -j$(nproc --all) recoveryimage
 
 guides:
 - https://alaskalinuxuser3.ddns.net/2023/09/19/where-do-i-start-zero-to-twrp-for-a-phone-with-no-custom-roms-or-recovery
@@ -28,6 +33,7 @@ random links:
 - https://xdaforums.com/t/guide-a-noob-guide-on-building-your-own-custom-kernel-on-win10-arm-arm64-mtk.3775494/
 - https://stackoverflow.com/questions/8251741/how-to-speed-up-mm-in-module-making-of-aosp
 - https://proandroiddev.com/how-fast-are-your-android-ci-builds-and-why-it-matters-a4309e40981f
+- https://github.com/Wishmasterflo/recovery_device_lenovo_X606F/blob/android-12.1-fbe/README.md
 
 tools:
 - https://github.com/twrpdtgen/twrpdtgen/tree/master
