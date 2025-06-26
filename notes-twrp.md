@@ -34,6 +34,7 @@ random links:
 - https://stackoverflow.com/questions/8251741/how-to-speed-up-mm-in-module-making-of-aosp
 - https://proandroiddev.com/how-fast-are-your-android-ci-builds-and-why-it-matters-a4309e40981f
 - https://github.com/Wishmasterflo/recovery_device_lenovo_X606F/blob/android-12.1-fbe/README.md
+- https://xdaforums.com/t/twrp-flags-to-add-in-boardconfig-mk.4700781/
 
 tools:
 - https://github.com/twrpdtgen/twrpdtgen/tree/master

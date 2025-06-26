@@ -16,6 +16,7 @@ PROJECT_DIR = SCRIPT_DIR.parent
 DUMPS_DIR = (PROJECT_DIR / "dumps/device").resolve()
 STDOUT_DUMPS = [
     ("adb shell getprop", "getprop"),
+    ("adb shell readelf -d system/bin/vold", "readelf_vold"),
     ("adb shell cat /proc/partitions", "partitions"),
     ("adb shell ls -l /dev/block/by-name", "block_by_name")
 ]
@@ -28,10 +29,12 @@ def main():
     
     for (cmd, fname) in STDOUT_DUMPS:
         OUTPUT_PATH = DUMPS_DIR / fname
-        logger.info(f"Running: {cmd}")
-        result = subprocess.run(cmd.split(" "), capture_output=True, text=True, check=True)
 
-        OUTPUT_PATH.write_text(result.stdout)
+        if not OUTPUT_PATH.exists():
+            logger.info(f"Running: {cmd}")
+            result = subprocess.run(cmd.split(" "), capture_output=True, text=True, check=True)
+
+            OUTPUT_PATH.write_text(result.stdout)
 
     logger.info("=== Pipeline completed successfully ===")
 
