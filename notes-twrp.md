@@ -1,16 +1,24 @@
+### Build
+```sh
 mkdir -p minTWRP
 cd minTWRP
 repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
 repo sync
-mkdir -p device/alps
-ln -s "$(realpath ../twrpdtgen/output/alps/odinlite_6877_fhd_v1)" device/alps/odinlite_6877_fhd_v1
+// mkdir -p device/alps
+// ln -s "$(realpath ../twrpdtgen/output/alps/odinlite_6877_fhd_v1)" device/alps/odinlite_6877_fhd_v1
+
+rm -rf device/alps && cp -r ../twrpdtgen/output/alps ./device
 
 export ALLOW_MISSING_DEPENDENCIES=true
 . build/envsetup.sh 
 lunch twrp_odinlite_6877_fhd_v1-eng
-mka recovery -j`nproc`
-mka bootimage -j`nproc`
+mka clean
+mka recovery -j`nproc` && mka bootimage -j`nproc`
 
+fastboot flash boot_a out/target/product/odinlite_6877_fhd_v1/boot.img && fastboot set_active a && fastboot reboot
+```
+
+### Resources
 guides:
 - https://alaskalinuxuser3.ddns.net/2023/09/19/where-do-i-start-zero-to-twrp-for-a-phone-with-no-custom-roms-or-recovery
   - https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp
