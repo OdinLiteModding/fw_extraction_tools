@@ -2,7 +2,7 @@
 ```sh
 mkdir -p minTWRP
 cd minTWRP
-repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
+repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
 repo sync
 // mkdir -p device/alps
 // ln -s "$(realpath ../twrpdtgen/output/alps/odinlite_6877_fhd_v1)" device/alps/odinlite_6877_fhd_v1

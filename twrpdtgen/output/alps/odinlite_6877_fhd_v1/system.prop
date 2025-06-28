@@ -2,17 +2,15 @@ ro.sys.usb.mtp.whql.enable=0
 ro.sys.usb.storage.type=mtp
 ro.sys.usb.bicr=no
 ro.sys.usb.charging.only=yes
-ro.product.property_source_order=odm,vendor,product,system
 
 ro.crypto.volume.filenames_mode=aes-256-cts
+ro.crypto.metadata.enabled=true
+ro.crypto.type=file
+ro.crypto.uses_fs_ioc_add_encryption_key=true
+# ro.crypto.volume.metadata.method=dm-default-key
+ro.crypto.dm_default_key.options_format.version=2
+ro.crypto.volume.options=::v2
+
 ro.vendor.mediatek.platform=MT6877
 ro.board.platform=mt6877
 ro.hardware.egl=meow
-
-#ro.treble.enabled=true
-ro.secure=0
-ro.adb.secure=0
-ro.debuggable=1
-persist.sys.usb.config=mtp,adb
-persist.service.adb.enable=1
-persist.service.debuggable=1
