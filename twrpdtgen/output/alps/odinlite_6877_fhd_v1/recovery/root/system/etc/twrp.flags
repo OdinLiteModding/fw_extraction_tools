@@ -51,10 +51,6 @@
 /odmdtbo                      emmc       /dev/block/by-name/odmdtbo                     flags=display="odm dtbo"
 /otp                          emmc       /dev/block/by-name/otp                         flags=display="otp"
 
-# # External storage
-# /devices/platform/externdevice*  /external_sd   auto    defaults    voldmanaged=sdcard1:auto
-# /devices/platform/usb_xhci*      /usb-otg       vfat    defaults    voldmanaged=usbotg:auto
-
 # # External Storage
-# /sdcard1                      auto       /dev/block/mmcblk0p1 /dev/block/mmcblk0     flags=display="MicroSD Card";storage;wipeingui;removable
-# /usb_otg                      auto       /dev/block/sdd1      /dev/block/sdd         flags=display="USB Storage";storage;wipeingui;removable;fsflags="utf8"
+/sdcard1                      auto       /dev/block/mmcblk0p1 /dev/block/mmcblk0     flags=display="MicroSD Card";storage;wipeingui;removable
+/usb_otg                      auto       /dev/block/sdd1      /dev/block/sdd         flags=display="USB Storage";storage;wipeingui;removable;fsflags="utf8"
